@@ -1,0 +1,34 @@
+
+<div class="login_panel" *ngIf="!isNewUser">
+    <h4 class="user_detail">{{labels.loginHeading}}</h4>
+    <div class="user_name">
+        <h3 class="input_heading">{{labels.UserName}}</h3>
+        <input class="input_box" type="text" name="userName" (input)="dnOnChange($event.target.value)">
+    </div>
+    <div class="password">
+        <h3 class="input_heading">{{labels.password}}</h3>
+        <input class="input_box" type="text" name="password" (input)="dnOnChange($event.target.value)">
+    </div>
+    <span class="hyperlink" (click)="createNewUser()">{{labels.newUser}}</span>
+    <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
+</div>
+<div class="login_panel" *ngIf="isNewUser">
+    <h4 class="user_detail">{{labels.createUserHeading}}</h4>
+    <div class="user_name">
+        <h3 class="input_heading">{{labels.UserName}}</h3>
+        <input class="input_box" type="text" name="userName">
+    </div>
+    <div class="email">
+        <h3 class="input_heading">{{labels.email}}</h3>
+        <input class="input_box" type="text" name="email">
+    </div>
+    <div class="password">
+        <h3 class="input_heading">{{labels.password}}</h3>
+        <input class="input_box" type="text" name="password">
+    </div>
+    <div class="re_password">
+        <h3 class="input_heading">{{labels.reEnterPassword}}</h3>
+        <input class="input_box" type="text" name="re-password">
+    </div>
+    <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
+</div>

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+.hyperlink {
+    color: #4B0082;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: default !important;
+}

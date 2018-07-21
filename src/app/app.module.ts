@@ -3,9 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import * as _ from 'lodash';
+import { LoginComponentComponent } from './login-component/login-component.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponentComponent
   ],
   imports: [
     BrowserModule
