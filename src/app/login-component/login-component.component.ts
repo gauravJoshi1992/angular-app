@@ -17,6 +17,7 @@ export class LoginComponentComponent implements OnInit {
         loginHeading: 'Enter UserName and Password to login.',
         createUserHeading: 'Enter UserName and Password to register.',
         newUser: 'New User',
+        goToLogin: 'Go to Login page',
         submit: 'Submit',
     };
 
@@ -36,6 +37,34 @@ export class LoginComponentComponent implements OnInit {
         },
     ];
 
+    createUserInputData = [
+        {
+            display: 'UserName',
+            errorMsg: 'UserName is required',
+            showErrorBox: false,
+            type: 'normal',
+            validationFun: this.userNameValidation,
+        }, {
+            display: 'Email',
+            errorMsg: 'Email is required and end with .com',
+            showErrorBox: false,
+            type: 'email',
+            validationFun: this.emailValidation,
+        }, {
+            display: 'Password',
+            errorMsg: 'Password is required and at-least of 8 char',
+            showErrorBox: false,
+            type: 'password',
+            validationFun: this.passwordValidation,
+        }, {
+            display: 'Re-enter Password',
+            errorMsg: 'Password is required and at-least of 8 char',
+            showErrorBox: false,
+            type: 'password',
+            validationFun: this.passwordValidation,
+        },
+    ];
+
     ngOnInit() {
         this.submitBtnClass();
     }
@@ -44,12 +73,18 @@ export class LoginComponentComponent implements OnInit {
         this.isNewUser = true;
     }
 
+    public goToLogin () {
+        this.isNewUser = false;
+    }
+
     public submitBtnClass () {
         this.isBtnEnable = this.isSubmitBtnEnable ? '' : 'disabled';
     }
 
     public setvalidation () {
-        _.each(this.loginInputData, function (obj) {
+        var fieldConfig = this.isNewUser ? this.createUserInputData : this.loginInputData;
+
+        _.each(fieldConfig, function (obj) {
             obj.showErrorBox = obj.validationFun(obj);
         })
     }
@@ -70,12 +105,23 @@ export class LoginComponentComponent implements OnInit {
         return false;
     }
 
+    public emailValidation (obj) {
+        if (_.isEmpty(obj.value) || !_.endsWith(obj.value, '.com')) {
+            return true;
+        }
+
+        return false;
+    }
+
     public doOnChange (target, data) {
         data.value = target.value;
 
-        var isTruevalue = this.isEveryValueTrue(this.loginInputData);
+        var isAllLoginField = this.isEveryValueTrue(this.loginInputData);
+        var isAllCreateUserField = this.isEveryValueTrue(this.createUserInputData);
 
-        this.isSubmitBtnEnable = !_.isEmpty(isTruevalue);
+        var isTrueValue = this.isNewUser ? isAllCreateUserField : isAllLoginField;
+
+        this.isSubmitBtnEnable = !_.isEmpty(isTrueValue);
         this.submitBtnClass();
     }
 
