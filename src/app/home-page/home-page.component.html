@@ -1,0 +1,12 @@
+<div class="left_pane">
+    <div>
+        <img class="hamburger_icon" src="../assets/Hamburger_icon.png">
+    </div>
+    <div *ngFor="let data of leftPaneData">
+        <ul>{{data.display}}
+            <li *ngFor="let option of data.options">
+                <div>{{option.display}}</div>
+            </li>
+        </ul>
+    </div>
+</div>

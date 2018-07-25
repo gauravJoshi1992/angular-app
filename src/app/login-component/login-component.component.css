@@ -1,3 +1,9 @@
+.login_component {
+    position: absolute;
+    left: 38%;
+    top: 38%;
+}
+
 .login_panel {
     width: 310px;
     font-size: 1.1em;

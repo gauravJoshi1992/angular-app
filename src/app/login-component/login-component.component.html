@@ -1,20 +1,22 @@
-<div class="login_panel" *ngIf="!isNewUser">
-    <h4 class="user_detail">{{labels.loginHeading}}</h4>
-    <div *ngFor="let data of loginInputData;">
-        <h3 class="input_heading">{{data.display}}</h3>
-        <input class="input_box" type="text" (input)="doOnChange($event.target, data)">
-        <div class="error_box" *ngIf="data.showErrorBox">{{data.errorMsg}}</div>
+<div class="login_component">
+    <div class="login_panel" *ngIf="!isNewUser">
+        <h4 class="user_detail">{{labels.loginHeading}}</h4>
+        <div *ngFor="let data of loginInputData;">
+            <h3 class="input_heading">{{data.display}}</h3>
+            <input class="input_box" type="text" (input)="doOnChange($event.target, data)">
+            <div class="error_box" *ngIf="data.showErrorBox">{{data.errorMsg}}</div>
+        </div>
+        <span class="hyperlink" (click)="createNewUser()">{{labels.newUser}}</span>
+        <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
     </div>
-    <span class="hyperlink" (click)="createNewUser()">{{labels.newUser}}</span>
-    <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
-</div>
-<div class="login_panel" *ngIf="isNewUser">
-    <h4 class="user_detail">{{labels.createUserHeading}}</h4>
-    <div *ngFor="let data of createUserInputData;">
-        <h3 class="input_heading">{{data.display}}</h3>
-        <input class="input_box" type="text" (input)="doOnChange($event.target, data)">
-        <div class="error_box" *ngIf="data.showErrorBox">{{data.errorMsg}}</div>
+    <div class="login_panel" *ngIf="isNewUser">
+        <h4 class="user_detail">{{labels.createUserHeading}}</h4>
+        <div *ngFor="let data of createUserInputData;">
+            <h3 class="input_heading">{{data.display}}</h3>
+            <input class="input_box" type="text" (input)="doOnChange($event.target, data)">
+            <div class="error_box" *ngIf="data.showErrorBox">{{data.errorMsg}}</div>
+        </div>
+        <span class="hyperlink" (click)="goToLogin()">{{labels.goToLogin}}</span>
+        <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
     </div>
-    <span class="hyperlink" (click)="goToLogin()">{{labels.goToLogin}}</span>
-    <button class="submit_button" [ngClass]="isBtnEnable" [disabled]='isBtnEnable' (click)="submitData()">{{labels.submit}}</button>
 </div>

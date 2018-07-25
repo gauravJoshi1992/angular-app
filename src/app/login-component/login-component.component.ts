@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -8,7 +9,7 @@ import * as _ from 'lodash';
 })
 export class LoginComponentComponent implements OnInit {
 
-    constructor() { }
+    constructor(private router: Router) { }
     isNewUser = false;
     isSubmitBtnEnable = false;
     isBtnEnable = 'disabled';
@@ -127,6 +128,7 @@ export class LoginComponentComponent implements OnInit {
 
     public submitData () {
         this.setvalidation();
+        this.router.navigate(['home']);
     }
 
     public isEveryValueTrue (obj) {
