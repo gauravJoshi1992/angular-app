@@ -1,7 +1,11 @@
+
 <div class="main_component">
     <div class="primary_bar">
         <div class="main_logo">
             <img class="electronic_logo" src="../assets/electronic_logo.png">
+        </div>
+        <div class="user_logo" *ngIf="isUserIconAvailable">
+            <img class="user_icon" src="../assets/user_icon.png">
         </div>
         <h1 class="main_heading">{{title}}</h1>
     </div>

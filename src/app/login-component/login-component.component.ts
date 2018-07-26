@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import * as _ from 'lodash';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LoginService } from '../login.service';
+
+import * as _ from 'lodash';
+
 @Component({
-  selector: 'app-login-component',
-  templateUrl: './login-component.component.html',
-  styleUrls: ['./login-component.component.css']
+    selector: 'app-login-component',
+    templateUrl: './login-component.component.html',
+    styleUrls: ['./login-component.component.css'],
+    providers: [LoginService]
 })
 export class LoginComponentComponent implements OnInit {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private loginService: LoginService) { }
     isNewUser = false;
     isSubmitBtnEnable = false;
     isBtnEnable = 'disabled';
@@ -87,7 +91,27 @@ export class LoginComponentComponent implements OnInit {
 
         _.each(fieldConfig, function (obj) {
             obj.showErrorBox = obj.validationFun(obj);
+        });
+
+        var filedWithErrorMsg = _.filter(fieldConfig, function (object) {
+            return !object.showErrorBox;
         })
+
+        if (filedWithErrorMsg.length === fieldConfig.length) {
+            this.loginSuccess();
+        } else {
+            this.loginError();
+        }
+    }
+
+    public loginSuccess () {
+        this.loginService.currentNameSubject.next(true);
+        // this.loginService.showUserIcon(true);
+        this.router.navigate(['home']);
+    }
+
+    public loginError () {
+        return;
     }
 
     public userNameValidation (obj) {
@@ -128,7 +152,6 @@ export class LoginComponentComponent implements OnInit {
 
     public submitData () {
         this.setvalidation();
-        this.router.navigate(['home']);
     }
 
     public isEveryValueTrue (obj) {

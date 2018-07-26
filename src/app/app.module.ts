@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-
-import * as _ from 'lodash';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { HomePageComponent } from './home-page/home-page.component';
+
+import { LoginService } from './login.service';
+
+import * as _ from 'lodash';
+
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponentComponent },
@@ -23,7 +26,7 @@ const appRoutes: Routes = [
         BrowserModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [],
+    providers: [LoginService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
