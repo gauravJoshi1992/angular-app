@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { LoginService } from '../login.service';
 
 @Component({
     selector: 'app-home-page',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-    constructor() { }
+    constructor (private loginService: LoginService) { }
 
     leftPaneData = [
         {
@@ -24,7 +26,14 @@ export class HomePageComponent implements OnInit {
         }
     ]
 
-    ngOnInit() {
+    ngOnInit () {
+        setTimeout(()=>{
+            this.loginService.userAuthChanged(true);
+        });
+    }
+
+    ngOnDestroy () {
+        this.loginService.userAuthChanged(false);
     }
 
 }

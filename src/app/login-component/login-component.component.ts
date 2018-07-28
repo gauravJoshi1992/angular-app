@@ -1,19 +1,16 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { LoginService } from '../login.service';
-
 import * as _ from 'lodash';
 
 @Component({
     selector: 'app-login-component',
     templateUrl: './login-component.component.html',
     styleUrls: ['./login-component.component.css'],
-    providers: [LoginService]
 })
 export class LoginComponentComponent implements OnInit {
 
-    constructor(private router: Router, private loginService: LoginService) { }
+    constructor(private router: Router) { }
     isNewUser = false;
     isSubmitBtnEnable = false;
     isBtnEnable = 'disabled';
@@ -105,8 +102,6 @@ export class LoginComponentComponent implements OnInit {
     }
 
     public loginSuccess () {
-        this.loginService.currentNameSubject.next(true);
-        // this.loginService.showUserIcon(true);
         this.router.navigate(['home']);
     }
 

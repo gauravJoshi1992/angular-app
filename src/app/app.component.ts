@@ -12,12 +12,11 @@ export class AppComponent {
     title = 'Electronic Online Shop';
     isUserIconAvailable = false;
 
-    constructor (private loginService: LoginService) {
-        this.loginService.currentNameSubject.subscribe((val) => {
-            console.log(val);
+    constructor (private loginService: LoginService) {}
+
+    ngOnInit () {
+        this.loginService.authChanged.subscribe((val) => {
             this.isUserIconAvailable = val;
         })
     }
-
-    ngOnInit () {}
 }
