@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import * as _ from 'lodash';
 
 @Component({
-    selector: 'app-login-component',
-    templateUrl: './login-component.component.html',
-    styleUrls: ['./login-component.component.css'],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
 })
-export class LoginComponentComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
     constructor(private router: Router) { }
     isNewUser = false;

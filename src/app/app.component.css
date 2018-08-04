@@ -21,16 +21,6 @@
     width: 50px;
 }
 
-.user_logo {
-    float: right;
-    margin: 12px;
-}
-
-.user_icon {
-    width: 35px;
-    cursor: pointer;
-}
-
 .main_heading {
     position: absolute;
     margin-top: 10px;
