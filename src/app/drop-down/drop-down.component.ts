@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
-  styleUrls: ['./drop-down.component.css']
+  styleUrls: ['./drop-down.component.scss']
 })
 export class DropDownComponent implements OnInit {
 

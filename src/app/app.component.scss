@@ -1,0 +1,29 @@
+.main_component {
+
+    .primary_bar {
+        width: 100%;
+        height: 60px;
+        background-color: #808080;
+
+        .main_logo {
+            float: left;
+            margin: 5px 0 -1px 20px;
+
+            .electronic_logo {
+                width: 50px;
+            }
+        }
+
+        .main_heading {
+            position: absolute;
+            margin-top: 10px;
+            left: calc(40% - 30px);
+            color: #4b0082;
+        }
+    }
+
+    .secondary_bar {
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+}

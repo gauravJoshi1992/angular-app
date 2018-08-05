@@ -1,0 +1,40 @@
+.drop_down_main {
+    border: solid 1px;
+    border-color: grey;
+    border-radius: 3px;
+    min-width: 100px;
+
+    .drop_down_item {
+        height: 30px;
+        text-indent: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .drop_down_item:hover{
+        background-color: green;
+        color: white;
+    }
+
+    .drop_down {
+        width: 100%;
+    }
+}
+
+/*.drop_down_item {
+    height: 30px;
+    text-indent: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.drop_down {
+    width: 100%;
+}
+
+.drop_down_item:hover{
+    background-color: green;
+    color: white;
+}*/
