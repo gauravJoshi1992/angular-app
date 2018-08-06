@@ -1,3 +1,6 @@
-<p>
-  user-setting works!
-</p>
+<div class="user_setting_main">
+    <div class="user_details" *ngFor="let field of userData">
+        <span class="user_heading">{{field.display}} :</span>
+        <span class="user_value">{{field.value}}</span>
+    </div>  
+</div>

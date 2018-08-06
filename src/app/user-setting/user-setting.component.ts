@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-user-setting',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-setting.component.scss']
 })
 export class UserSettingComponent implements OnInit {
+    userData = [
+        {
+            display: 'UserName',
+            value: '',
+        }, {
+            display: 'User Type',
+            value: 'Admin',
+        }
+    ]
 
-  	constructor() { }
+    constructor(private loginService: LoginService) { }
 
-  	ngOnInit() {
-  	}
+    ngOnInit() {
+        this.loginService.userName.subscribe((val) => {
+            this.userData[0].value = val[0].value;
+        })
+    }
 
 }

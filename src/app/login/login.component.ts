@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 import * as _ from 'lodash';
 
@@ -10,7 +11,7 @@ import * as _ from 'lodash';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private loginService: LoginService) { }
     isNewUser = false;
     isSubmitBtnEnable = false;
     isBtnEnable = 'disabled';
@@ -95,6 +96,10 @@ export class LoginComponent implements OnInit {
         })
 
         if (filedWithErrorMsg.length === fieldConfig.length) {
+            setTimeout(()=>{
+                this.loginService.getUserName(fieldConfig);
+            })
+
             this.loginSuccess();
         } else {
             this.loginError();

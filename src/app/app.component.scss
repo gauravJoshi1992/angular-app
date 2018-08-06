@@ -25,5 +25,7 @@
     .secondary_bar {
         width: 100%;
         height: calc(100vh - 60px);
+        position: absolute;
+        background-color: #ffe4b5;
     }
 }
