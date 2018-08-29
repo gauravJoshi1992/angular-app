@@ -13,7 +13,6 @@ import { DropDownComponent } from './drop-down/drop-down.component';
 import { UserComponent } from './user/user.component';
 import { UserSettingComponent } from './user-setting/user-setting.component';
 
-
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'home', component: HomePageComponent },
@@ -27,7 +26,7 @@ const appRoutes: Routes = [
         HomePageComponent,
         DropDownComponent,
         UserComponent,
-        UserSettingComponent
+        UserSettingComponent,
     ],
     imports: [
         BrowserModule,

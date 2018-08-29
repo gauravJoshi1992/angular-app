@@ -1,12 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html',
-    styleUrls: ['./user.component.scss']
+    styleUrls: ['./user.component.scss'],
+    host: {
+      '(document:click)': 'handleClick($event)',
+    },
 })
 export class UserComponent implements OnInit {
     isUserIconClicked = false;
+    public elementRef;
     userDropdownItems = [
         {
             display: 'Setting',
@@ -17,25 +21,28 @@ export class UserComponent implements OnInit {
         }
     ];
 
-    constructor() { }
+    constructor(private myElement: ElementRef) {
+        this.elementRef = myElement;
+    }
 
     ngOnInit() {
     }
 
-    public userIconClick () {
-        this.isUserIconClicked = ! this.isUserIconClicked;
-    }
+    public handleClick(event){
+        var clickedComponent = event.target;
+        var inside = false;
 
-    public autoCloseForDropdownCars (event) {
-        console.log('hiiiiiii')
-        this.isUserIconClicked = false;
-    }
+        do {
+            if (clickedComponent === this.elementRef.nativeElement) {
+                inside = true;
+            }
+            clickedComponent = clickedComponent.parentNode;
+        } while (clickedComponent);
 
-    // @HostListener('document:click')
-    // clickout(event) {
-    //     console.log('some thing key upped', this.isUserIconClicked);
-    //     if (this.isUserIconClicked) {
-    //         this.isUserIconClicked = false;
-    //     }
-    // }
+        if(inside){
+            this.isUserIconClicked = ! this.isUserIconClicked;
+        }else{
+            this.isUserIconClicked = false;
+        }
+    }
 }

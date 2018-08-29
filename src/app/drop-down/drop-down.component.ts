@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 import { LoginService } from '../login.service';
 import * as _ from 'lodash';
 
@@ -11,7 +13,7 @@ import * as _ from 'lodash';
 export class DropDownComponent implements OnInit {
 
   	@Input() userDropdownItems: any;
-  	constructor(private loginService: LoginService) { }
+  	constructor(private loginService: LoginService, private router: Router) { }
 
   	ngOnInit() {
   		this.userDropdownItems = this.userDropdownItems;
