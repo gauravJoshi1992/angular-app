@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
 
         if (filedWithErrorMsg.length === fieldConfig.length) {
             setTimeout(()=>{
-                this.loginService.getUserName(fieldConfig);
+                this.loginService.getUserName(fieldConfig[0]);
             })
 
             this.loginSuccess();

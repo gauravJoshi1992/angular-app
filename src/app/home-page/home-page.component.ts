@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from '../login.service';
 
@@ -31,9 +31,4 @@ export class HomePageComponent implements OnInit {
             this.loginService.userAuthChanged(true);
         });
     }
-
-    ngOnDestroy () {
-        this.loginService.userAuthChanged(false);
-    }
-
 }

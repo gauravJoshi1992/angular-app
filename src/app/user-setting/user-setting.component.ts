@@ -20,9 +20,7 @@ export class UserSettingComponent implements OnInit {
     constructor(private loginService: LoginService) { }
 
     ngOnInit() {
-        this.loginService.userName.subscribe((val) => {
-            this.userData[0].value = val[0].value;
-        })
+        this.userData[0].value = this.loginService.userName;
     }
 
 }

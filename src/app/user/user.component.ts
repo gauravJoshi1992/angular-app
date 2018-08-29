@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
         this.isUserIconClicked = ! this.isUserIconClicked;
     }
 
-    public close () {
+    public autoCloseForDropdownCars (event) {
         console.log('hiiiiiii')
         this.isUserIconClicked = false;
     }
@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
     // clickout(event) {
     //     console.log('some thing key upped', this.isUserIconClicked);
     //     if (this.isUserIconClicked) {
-    //         // this.isUserIconClicked = false;
+    //         this.isUserIconClicked = false;
     //     }
     // }
 }

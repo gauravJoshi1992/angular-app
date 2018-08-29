@@ -5,10 +5,9 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class LoginService {
-
+    userName: '';
     currentNameSubject:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() userName: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
@@ -17,7 +16,6 @@ export class LoginService {
     }
 
     public getUserName (obj) {
-    	console.log(obj);
-        this.userName.emit(obj);
+        this.userName = obj.value;
     }
 }

@@ -1,5 +1,5 @@
 <div class="drop_down_main">
 	<div class="drop_down_item" *ngFor="let item of userDropdownItems;">
-		<span class="drop_down" >{{item.display}}</span>
+		<span class="drop_down" (click)="doOnClick(item)">{{item.display}}</span>
 	</div>
 </div>
