@@ -1,0 +1,8 @@
+<div class="user_main">
+    <div class="user_logo">
+        <img #userIcon class="user_icon" src="../assets/user_icon.png">
+    </div>
+    <div class="user_drop_down" *ngIf="isUserIconClicked">
+        <app-drop-down [userDropdownItems]="userDropdownItems"></app-drop-down>
+    </div>
+</div>

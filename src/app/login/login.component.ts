@@ -1,17 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { LoginService } from '../login.service';
 
 import * as _ from 'lodash';
 
 @Component({
-    selector: 'app-login-component',
-    templateUrl: './login-component.component.html',
-    styleUrls: ['./login-component.component.css'],
-    providers: [LoginService]
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
 })
-export class LoginComponentComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
     constructor(private router: Router, private loginService: LoginService) { }
     isNewUser = false;
@@ -98,6 +96,10 @@ export class LoginComponentComponent implements OnInit {
         })
 
         if (filedWithErrorMsg.length === fieldConfig.length) {
+            setTimeout(()=>{
+                this.loginService.getUserName(fieldConfig[0]);
+            })
+
             this.loginSuccess();
         } else {
             this.loginError();
@@ -105,8 +107,6 @@ export class LoginComponentComponent implements OnInit {
     }
 
     public loginSuccess () {
-        this.loginService.currentNameSubject.next(true);
-        // this.loginService.showUserIcon(true);
         this.router.navigate(['home']);
     }
 

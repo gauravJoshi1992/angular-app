@@ -1,19 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
-
+    userName: '';
     currentNameSubject:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-    // isUserIconAvailable = false;
+    @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+
     constructor() { }
-    // console.log(currentNameSubject.getValue());
-    showUserIcon (iconValue) {
-    	console.log('first::::::::::',this.currentNameSubject.getValue());
-    	this.currentNameSubject.next(iconValue);
-    	console.log('second::::::::::',this.currentNameSubject.getValue());
-        // this.isUserIconAvailable =  iconValue;
+
+    public userAuthChanged (status: boolean) {
+        this.authChanged.emit(status);
+    }
+
+    public getUserName (obj) {
+        this.userName = obj.value;
     }
 }
