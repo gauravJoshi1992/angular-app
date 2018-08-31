@@ -7,6 +7,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 }
 
+ul {
+    margin: 0px;
+}
+
 .hyperlink {
     color: #4B0082;
     text-decoration: underline;
@@ -17,8 +21,10 @@ h1, h2, h3, h4, h5, h6 {
     cursor: default !important;
 }
 
-.hamburger_icon {
-	width: 35px;
-	margin: 10px;
-	cursor: pointer;
+.hamburger_main {
+    .hamburger_icon {
+        width: 35px;
+        margin: 10px;
+        cursor: pointer;
+    }
 }

@@ -1,5 +1,59 @@
-.left_pane {
-    width: 300px;
+.left_pane_main {
+    width: 100%;
     height: 100%;
-    background-color: #4b0082;  
+
+    .action_bar {
+        height: 59px;
+        width: 100%;
+        background-color: #8A2BE2;
+    }
+
+    .left_pane {
+        width: 300px;
+        height: calc(100% - 59px);
+
+        margin-top: 0px;
+        background-color: #4b0082;
+
+        .left_pane_data {
+            cursor: pointer;
+
+            .arrow_icon {
+                float: left;
+                margin: 8px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+
+                &.right {
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+
+                &.down {
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+
+            .options_heading {
+                height: 30px;
+                line-height: 30px;
+
+                color: white;
+                font-size: 20px;
+                padding-left: 35px;
+                background-color: black;
+            }
+
+            .options_sub_heading {
+                color: black;
+                list-style: none;
+                margin: 4px 10px 0 20px;
+                height: 20px;
+                font-size: 18px;
+            }
+        }
+    }
 }
