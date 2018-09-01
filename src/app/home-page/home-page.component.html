@@ -5,16 +5,6 @@
         </div>
     </div>
     <div class="left_pane" *ngIf="showLeftPane">
-        <div class="left_pane_data" *ngFor="let data of leftPaneData">
-            <div (click)="arrowClick()">
-                <div class="arrow_icon" [ngClass]="arrowIconClass"></div>
-                <div class="options_heading">{{data.display}}</div>
-            </div>
-            <ul *ngIf="isArrowDown">
-                <li class="options_sub_heading" *ngFor="let option of data.options">
-                    <div>{{option.display}}</div>
-                </li>
-            </ul>
-        </div>
+        <app-left-pane></app-left-pane>
     </div>
 </div>

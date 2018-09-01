@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
     providers: [LoginService],
 })
 export class AppComponent {
-    title = 'Electronic Online Shop';
+    title = 'Online Mobile Shop';
     isUserIconAvailable = false;
     isUserIconClicked = false;
 

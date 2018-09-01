@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { UserComponent } from './user/user.component';
 import { UserSettingComponent } from './user-setting/user-setting.component';
+import { LeftpaneComponent } from './left-pane/left-pane.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
         DropDownComponent,
         UserComponent,
         UserSettingComponent,
+        LeftpaneComponent,
     ],
     imports: [
         BrowserModule,

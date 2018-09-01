@@ -9,25 +9,8 @@ import { LoginService } from '../login.service';
 })
 export class HomePageComponent implements OnInit {
     showLeftPane = true;
-    isArrowDown = true;
-    arrowIconClass = 'down';
 
     constructor (private loginService: LoginService) { }
-
-    leftPaneData = [
-        {
-            display: 'Filters',
-            options: [
-                {
-                    display: 'Brand',
-                }, {
-                    display: 'Type',
-                }, {
-                    display: 'Price',
-                }
-            ],
-        }
-    ]
 
     ngOnInit () {
         setTimeout(()=>{
@@ -37,16 +20,5 @@ export class HomePageComponent implements OnInit {
 
     public hamburgerClick = function (argument) {
         this.showLeftPane = ! this.showLeftPane;
-    }
-
-    public arrowClick = function () {
-        console.log('hiiiiiiii')
-        if (this.arrowIconClass === 'down') {
-            this.arrowIconClass = 'right';
-            this.isArrowDown = false;
-        } else {
-            this.arrowIconClass = 'down';
-            this.isArrowDown = true;
-        }
     }
 }
