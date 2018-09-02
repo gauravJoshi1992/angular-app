@@ -6,13 +6,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./left-pane.component.scss']
 })
 export class LeftpaneComponent implements OnInit {
-    isArrowDown = true;
-    arrowIconClass = 'down';
 
     constructor() { }
 
     leftPaneData = [
         {
+            arrowIconClass: 'down',
             display: 'Filters',
             options: [
                 {
@@ -23,7 +22,9 @@ export class LeftpaneComponent implements OnInit {
                     display: 'Price',
                 }
             ],
+            showOptions: true,
         }, {
+            arrowIconClass: 'down',
             display: 'Customer Ratings',
             options: [
                 {
@@ -38,7 +39,9 @@ export class LeftpaneComponent implements OnInit {
                     display: '1 * & above',
                 }
             ],
+            showOptions: true,
         }, {
+            arrowIconClass: 'down',
             display: 'Category',
             options: [
                 {
@@ -47,19 +50,20 @@ export class LeftpaneComponent implements OnInit {
                     display: 'Electronics',
                 }
             ],
+            showOptions: true,
         }
     ]
 
     ngOnInit() {
     }
 
-    public arrowClick = function () {
-        if (this.arrowIconClass === 'down') {
-            this.arrowIconClass = 'right';
-            this.isArrowDown = false;
+    public arrowClick = function (option) {
+        if (option.arrowIconClass === 'down') {
+            option.arrowIconClass = 'right';
+            option.showOptions = false;
         } else {
-            this.arrowIconClass = 'down';
-            this.isArrowDown = true;
+            option.arrowIconClass = 'down';
+            option.showOptions = true;
         }
     }
 }

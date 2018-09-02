@@ -1,9 +1,9 @@
 <div class="left_pane_data" *ngFor="let data of leftPaneData">
-    <div (click)="arrowClick()">
-        <div class="arrow_icon" [ngClass]="arrowIconClass"></div>
+    <div (click)="arrowClick(data)">
+        <div class="arrow_icon" [ngClass]="data.arrowIconClass"></div>
         <div class="options_heading">{{data.display}}</div>
     </div>
-    <ul *ngIf="isArrowDown">
+    <ul *ngIf="data.showOptions">
         <li class="options_sub_heading" *ngFor="let option of data.options">
             <div>{{option.display}}</div>
         </li>

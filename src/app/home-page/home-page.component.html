@@ -1,10 +1,13 @@
-<div class="left_pane_main">
+<div class="home_page_main">
     <div class="action_bar">
-        <div class="hamburger_main" (click)="hamburgerClick()">
-            <img class="hamburger_icon" src="../assets/hamburger_icon.png">
+        <div class="hamburger_main">
+            <img class="hamburger_icon" (click)="hamburgerClick()" src="../assets/hamburger_icon.png">
         </div>
     </div>
     <div class="left_pane" *ngIf="showLeftPane">
         <app-left-pane></app-left-pane>
+    </div>
+    <div class="right_pane">
+        <app-right-pane></app-right-pane>
     </div>
 </div>
