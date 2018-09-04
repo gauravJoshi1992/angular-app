@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import { UserSettingComponent } from './user-setting/user-setting.component';
 import { LeftpaneComponent } from './left-pane/left-pane.component';
 import { RightPaneComponent } from './right-pane/right-pane.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
         UserSettingComponent,
         LeftpaneComponent,
         RightPaneComponent,
+        TooltipComponent,
     ],
     imports: [
         BrowserModule,

@@ -5,7 +5,9 @@
     </div>
     <ul *ngIf="data.showOptions">
         <li class="options_sub_heading" *ngFor="let option of data.options">
-            <div>{{option.display}}</div>
+        	<div (click)="showFilterTooltip(option)">{{option.display}}
+        		<app-tooltip [tooltipObj]="option"  *ngIf="option.showTooltip"></app-tooltip>
+        	</div>
         </li>
     </ul>
 </div>
